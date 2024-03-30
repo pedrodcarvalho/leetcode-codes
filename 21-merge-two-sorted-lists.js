@@ -1,0 +1,28 @@
+/**
+ * Dificulty: Easy
+ * Topics: Linked List, Recursion
+ */
+
+class ListNode {
+    constructor(val = 0, next = null) {
+        this.val = val;
+        this.next = next;
+    }
+}
+
+const mergeTwoLists = (list1, list2) => {
+    if (!list1) {
+        return list2;
+    }
+    else if (!list2) {
+        return list1;
+    }
+    else if (list1.val <= list2.val) {
+        list1.next = mergeTwoLists(list1.next, list2);
+        return list1;
+    }
+    else {
+        list2.next = mergeTwoLists(list1, list2.next);
+        return list2;
+    }
+};
